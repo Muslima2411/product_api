@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-class Product{
+class Product {
   late String productId;
   late String productName;
   late double price;
@@ -8,26 +8,26 @@ class Product{
   late Availability availability;
   late Details details;
 
-  Product.fromJson(Map<String, dynamic> json){
+  Product.fromJson(Map<String, dynamic> json) {
     productId = json["productId"];
     productName = json["productName"];
     inStock = json["inStock"];
     availability = Availability.fromJson(json["availability"]);
     details = Details.fromJson(json["details"]);
   }
-  Map<String, dynamic> toJson(){
-    return{
-      "productId":productId,
-      "productName":productName,
-      "price":price,
-      "availability":availability,
-      "details":details
+
+  Map<String, dynamic> toJson() {
+    return {
+      "productId": productId,
+      "productName": productName,
+      "price": price,
+      "availability": availability,
+      "details": details
     };
   }
-
 }
 
-class Availability{
+class Availability {
   late bool online;
   late Offline offline;
 
@@ -45,45 +45,40 @@ class Availability{
   }
 }
 
-class Details{
+class Details {
   late String brand;
   late String model;
   late Specs specs;
 
-  Details.fromJson(Map<String, dynamic> json){
+  Details.fromJson(Map<String, dynamic> json) {
     brand = json["brand"];
     model = json["model"];
     specs = Specs.fromJson(json["specs"]);
   }
-  Map<String, dynamic> toJson(){
-    return{
-      "brand":brand,
-      "model":model,
-      "specs":specs
-    };
+
+  Map<String, dynamic> toJson() {
+    return {"brand": brand, "model": model, "specs": specs};
   }
 }
 
-class Offline{
+class Offline {
   late int store1;
   late int store2;
   late int store3;
-  Offline.fromJson(Map<String, dynamic> json){
+
+  Offline.fromJson(Map<String, dynamic> json) {
     store1 = json["store1"];
     store2 = json["store2"];
     store3 = json["store3"];
   }
-  Map<String, dynamic> toJson(){
-    return{
-      "store1":store1,
-      "store2":store2,
-      "store3":store3
-    };
+
+  Map<String, dynamic> toJson() {
+    return {"store1": store1, "store2": store2, "store3": store3};
   }
 }
 // @Diyorakhon_07
 
-class Specs{
+class Specs {
   late Screen screen;
   late Storage storage;
   late Ram ram;
@@ -94,7 +89,7 @@ class Specs{
   Camera? camera;
   Graphics? graphics;
 
-  Specs.fromJson(Map<String,dynamic> json){
+  Specs.fromJson(Map<String, dynamic> json) {
     screen = Screen.fromJson(json["screen"]);
     storage = Storage.fromJson(json["storage"]);
     ram = Ram.fromJson(json["ram"]);
@@ -103,105 +98,101 @@ class Specs{
     connectivity = Connectivity.fromJson(json["connectivity"]);
     warranty = Warranty.fromJson(json["warranty"]);
     camera = json["camera"] != null ? Camera.fromJson(json["camera"]) : null;
-    graphics = json["graphics"] != null ? Graphics.fromJson(json["graphics"]) : null;
+    graphics =
+        json["graphics"] != null ? Graphics.fromJson(json["graphics"]) : null;
   }
 
-  Map<String, dynamic> toJson(){
-    return{
-      "screen":screen,
-      "storage":storage,
-      "ram":ram,
-      "battery":battery,
-      "operatingSystem":operatingSystem,
-      "connectivity":connectivity,
-      "warranty":warranty,
-      "camera":camera,
-      "graphics":graphics,
+  Map<String, dynamic> toJson() {
+    return {
+      "screen": screen,
+      "storage": storage,
+      "ram": ram,
+      "battery": battery,
+      "operatingSystem": operatingSystem,
+      "connectivity": connectivity,
+      "warranty": warranty,
+      "camera": camera,
+      "graphics": graphics,
     };
   }
-
 }
 
-class Screen{
+class Screen {
   late String type;
   late double size;
   late String resolution;
-  Screen.fromJson(Map<String, dynamic> json){
+
+  Screen.fromJson(Map<String, dynamic> json) {
     type = json["type"];
     size = json["size"];
     resolution = json["resolution"];
   }
-  Map<String, dynamic> toJson(){
-    return{
-      "type":type,
-      "size":size,
-      "resolution":resolution
-    };
-  }
 
+  Map<String, dynamic> toJson() {
+    return {"type": type, "size": size, "resolution": resolution};
+  }
 }
 
-class Storage{
+class Storage {
   late String type;
   late String capacity;
-  Storage.fromJson(Map<String, dynamic> json){
+
+  Storage.fromJson(Map<String, dynamic> json) {
     type = json["type"];
     capacity = json["capacity"];
   }
-  Map<String, dynamic> toJson(){
-    return{
-      "type":type,
-      "capacity":capacity
-    };
+
+  Map<String, dynamic> toJson() {
+    return {"type": type, "capacity": capacity};
   }
 }
 
-class Ram{
+class Ram {
   late String type;
   late String capacity;
   late String speed;
-  Ram.fromJson(Map<String, dynamic> json){
+
+  Ram.fromJson(Map<String, dynamic> json) {
     type = json["type"];
     capacity = json["capacity"];
     speed = json["speed"];
   }
-  Map<String, dynamic> toJson(){
-    return{
-      "type":type,
-      "capacity":capacity,
-      "speed":speed
-    };
+
+  Map<String, dynamic> toJson() {
+    return {"type": type, "capacity": capacity, "speed": speed};
   }
 }
 
-class Camera{
+class Camera {
   Rear? rear;
   Front? front;
 
-  Camera.fromJson(Map<String, dynamic> json){
+  Camera.fromJson(Map<String, dynamic> json) {
     rear = Rear.fromJson(json["rear"]);
     front = Front.fromJson(json["front"]);
   }
-  Map<String, dynamic> toJson(){
-    return{
-      "rear":rear,
-      "front":front,
+
+  Map<String, dynamic> toJson() {
+    return {
+      "rear": rear,
+      "front": front,
     };
   }
-
 }
 
-class Rear{
+class Rear {
   String? resolution;
   String? aperture;
-  Rear.fromJson(Map<String, dynamic> json){
+
+  Rear.fromJson(Map<String, dynamic> json) {
     resolution = json["resolution"];
     aperture = json["aperture"];
   }
-  Map<String, dynamic> toJson(){
-    return{
-      "resolution":resolution,
-      "aperture":aperture,
+
+  Map<String, dynamic> toJson() {
+    return {
+      "resolution": resolution,
+      "aperture": aperture,
     };
   }
 }
@@ -209,117 +200,110 @@ class Rear{
 class Front {
   String? resolution;
   String? aperture;
-  Front.fromJson(Map<String, dynamic> json){
+
+  Front.fromJson(Map<String, dynamic> json) {
     resolution = json["resolution"];
     aperture = json["aperture"];
   }
-  Map<String, dynamic> toJson(){
-    return{
-      "resolution":resolution,
-      "aperture":aperture,
+
+  Map<String, dynamic> toJson() {
+    return {
+      "resolution": resolution,
+      "aperture": aperture,
     };
   }
 }
 
-class Battery{
+class Battery {
   late String type;
   late String capacity;
   late Charging charging;
 
-  Battery.fromJson(Map<String, dynamic> json){
+  Battery.fromJson(Map<String, dynamic> json) {
     type = json["type"];
     capacity = json["capacity"];
     charging = Charging.fromJson(json["charging"]);
   }
-  Map<String, dynamic> toJson(){
-    return{
-      "type":type,
-      "capacity":capacity,
-      "charging":charging
-    };
+
+  Map<String, dynamic> toJson() {
+    return {"type": type, "capacity": capacity, "charging": charging};
   }
 }
 
-class Charging{
+class Charging {
   late String type;
   late int wattage;
 
-  Charging.fromJson(Map<String, dynamic> json){
+  Charging.fromJson(Map<String, dynamic> json) {
     type = json["type"];
     wattage = json["wattage"];
   }
-  Map<String, dynamic> toJson(){
-    return{
-      "type":type,
-      "wattage":wattage
-    };
-  }
 
+  Map<String, dynamic> toJson() {
+    return {"type": type, "wattage": wattage};
+  }
 }
 
-class OperatingSystem{
+class OperatingSystem {
   late String name;
   late String version;
   String? customSkin;
 
-  OperatingSystem.fromJson(Map<String, dynamic> json){
+  OperatingSystem.fromJson(Map<String, dynamic> json) {
     name = json["name"];
     version = json["version"];
     customSkin = json["customSkin"];
   }
-  Map<String, dynamic> toJson(){
-    return{
-      "name":name,
-      "version":version,
-      "customSkin":customSkin
-    };
-  }
 
+  Map<String, dynamic> toJson() {
+    return {"name": name, "version": version, "customSkin": customSkin};
+  }
 }
 
-class Connectivity{
+class Connectivity {
   late String wifi;
   late String bluetooth;
   bool? nfc;
 
-  Connectivity.fromJson(Map<String, dynamic> json){
-    wifi= json["wifi"];
+  Connectivity.fromJson(Map<String, dynamic> json) {
+    wifi = json["wifi"];
     bluetooth = json["bluetooth"];
     nfc = json["nfc"];
   }
-  Map<String, dynamic> toJson(){
-    return{
-      "wifi": wifi,
-      "bluetooth":bluetooth,
-      "nfc":nfc
-    };
+
+  Map<String, dynamic> toJson() {
+    return {"wifi": wifi, "bluetooth": bluetooth, "nfc": nfc};
   }
 }
 
-class Warranty{
+class Warranty {
   late int months;
   late String type;
 
-  Warranty.fromJson(Map<String, dynamic> json){
+  Warranty.fromJson(Map<String, dynamic> json) {
     months = json["months"];
     type = json["type"];
   }
-  Map<String, dynamic> toJson(){
-    return{
-      "months":months,
-      "type":type,
+
+  Map<String, dynamic> toJson() {
+    return {
+      "months": months,
+      "type": type,
     };
   }
 }
 
-class Graphics{
+class Graphics {
   String? type;
-  Graphics.fromJson(Map<String, dynamic> json){
+
+  Graphics.fromJson(Map<String, dynamic> json) {
     type = json["type"];
   }
-  Map<String, dynamic> toJson() => {"type":type};
+
+  Map<String, dynamic> toJson() => {"type": type};
 }
 
-List<Product> productListFromData(String data) => List<Product>.from(jsonDecode(data).map((e) => Product.fromJson(e)));
+List<Product> productListFromData(String data) =>
+    List<Product>.from(jsonDecode(data).map((e) => Product.fromJson(e)));
 
 String productToData(Product product) => jsonEncode(product.toJson());
